@@ -49,7 +49,7 @@
     <orderEntry type="library" scope="PROVIDED" name="bootsnap (v1.18.4, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="brakeman (v6.2.2, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.3.0, asdf: 3.3.4) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="bundler (v2.6.1, asdf: 3.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bundler (v2.6.2, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="capybara (v3.40.0, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="concurrent-ruby (v1.3.4, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="connection_pool (v2.4.1, asdf: 3.3.4) [gem]" level="application" />
@@ -71,6 +71,7 @@
     <orderEntry type="library" scope="PROVIDED" name="json (v2.9.1, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="kamal (v2.4.0, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="language_server-protocol (v3.17.0.3, asdf: 3.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="lint_roller (v1.1.0, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="logger (v1.6.4, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="loofah (v2.23.1, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mail (v2.8.1, asdf: 3.3.4) [gem]" level="application" />
@@ -126,6 +127,10 @@
     <orderEntry type="library" scope="PROVIDED" name="solid_queue (v1.1.0, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sqlite3 (v2.4.1, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sshkit (v1.23.2, asdf: 3.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="standard (v1.43.0, asdf: 3.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="standard-custom (v1.0.2, asdf: 3.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="standard-performance (v1.6.0, asdf: 3.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="standardrb (v1.0.1, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="stimulus-rails (v1.3.4, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="stringio (v3.1.2, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tailwindcss-rails (v3.0.0, asdf: 3.3.4) [gem]" level="application" />
