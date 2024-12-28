@@ -1,4 +1,4 @@
-<div class="min-h-screen flex flex-col items-center justify-center p-6">
+<div class="min-h-screen flex flex-col items-center justify-center p-4">
 
   <!-- Title -->
   <header class="text-center mb-8">
@@ -8,57 +8,58 @@
     <p class="text-lg mt-2 text-gray-400">The greatest minds who ever lived, solving your everyday problems</p>
   </header>
 
+  <!-- Selected AI personas -->
+  <div class="bg-gray-800 p-4 rounded-lg shadow-lg text-center mb-8 max-w-5xl">
+    <h2 class="text-2xl font-semibold text-gray-300">At the <span class="text-rose-600">RoundTable</span> with <span class="text-green-600 hover:underline">Albert Einstein</span>, <span class="text-yellow-600 hover:underline">Nikola Tesla</span>, and <span class="text-blue-600 hover:underline">Isaac Newton</span></h2>
+  </div>
+
   <!-- Chat container -->
-  <div class="bg-gray-800 w-full max-w-3xl rounded-lg p-6 space-y-6 border-2 border-gray-600 shadow-lg">
-
+  <div class="bg-gray-800 w-full max-w-5xl flex flex-col flex-grow rounded-lg p-4 space-y-6 shadow-lg">
     <!-- Chat bubbles for each AI persona -->
-    <div class="space-y-4">
-      <!-- Persona 1 -->
+    <div class="flex flex-col flex-grow space-y-4">
+      <!-- Isaac Newton -->
       <div class="flex items-start">
-        <div class="bg-rose-600 text-white px-4 py-2 rounded-lg max-w-xs">
-          <p class="font-medium">Persona 1:</p>
-          <p class="mt-1 text-sm">"I'm excited to discuss the future of AI and its impact on society."</p>
+        <div class="bg-blue-600 text-white px-4 py-2 rounded-lg max-w-fit">
+          <p class="font-medium">Isaac Newton</p>
+          <p class="mt-1 text-sm">I'm excited to discuss the future of AI and its impact on society.</p>
         </div>
       </div>
 
-      <!-- Persona 2 -->
+      <!-- User -->
       <div class="flex items-start justify-end">
-        <div class="bg-gray-700 text-white px-4 py-2 rounded-lg max-w-xs">
-          <p class="font-medium">Persona 2:</p>
-          <p class="mt-1 text-sm">"Indeed, AI is a powerful tool, but we must ensure it's developed ethically."</p>
+        <div class="bg-gray-700 text-white px-4 py-2 rounded-lg max-w-fit">
+          <p class="font-medium">You</p>
+          <p class="mt-1 text-sm">Indeed, AI is a powerful tool, but we must ensure it's developed ethically.</p>
         </div>
       </div>
 
-      <!-- Persona 3 -->
+      <!-- Nikola Tesla -->
       <div class="flex items-start">
-        <div class="bg-rose-600 text-white px-4 py-2 rounded-lg max-w-xs">
-          <p class="font-medium">Persona 3:</p>
-          <p class="mt-1 text-sm">"AI can revolutionize industries, but we must avoid unintended consequences."</p>
+        <div class="bg-yellow-600 text-white px-4 py-2 rounded-lg max-w-fit">
+          <p class="font-medium">Nikola Tesla</p>
+          <p class="mt-1 text-sm">AI can revolutionize industries, but we must avoid unintended consequences.</p>
         </div>
       </div>
 
-      <!-- Persona 1 (continued) -->
+      <!-- Albert Einstein -->
       <div class="flex items-start">
-        <div class="bg-rose-600 text-white px-4 py-2 rounded-lg max-w-xs">
-          <p class="font-medium">Persona 1:</p>
-          <p class="mt-1 text-sm">"Absolutely, but collaboration between humans and AI could unlock new possibilities."</p>
+        <div class="bg-green-600 text-white px-4 py-2 rounded-lg max-w-fit">
+          <p class="font-medium">Albert Einstein</p>
+          <p class="mt-1 text-sm">Absolutely, but collaboration between humans and AI could unlock new possibilities.</p>
         </div>
       </div>
     </div>
 
-  </div>
-
-  <!-- Input Field with Send Button -->
-  <div class="mt-6 w-full max-w-3xl shadow-lg">
-    <div class="relative flex items-center">
-      <!-- Input Field -->
-      <input type="text" placeholder="Type your message..." class="w-full bg-gray-800 text-white py-3 pl-4 pr-12 rounded-lg border-2 border-gray-600 placeholder-gray-400">
-
-      <!-- Send Button (Icon) -->
-      <button class="absolute right-4 text-gray-500 hover:text-gray-400 focus:outline-none">
-        ➤
-      </button>
+    <!-- Input Field with Send Button -->
+    <div class="w-full justify-end shadow-lg">
+      <div class="relative flex items-center">
+        <!-- Input Field -->
+        <input type="text" placeholder="Type your message..." class="w-full bg-gray-800 text-white py-3 pl-4 pr-12 rounded-lg border-2 border-gray-600 placeholder-gray-400">
+        <!-- Send Button (Icon) -->
+        <button class="absolute right-4 text-gray-500 hover:text-gray-400 focus:outline-none">
+          ➤
+        </button>
+      </div>
     </div>
   </div>
-
 </div>
