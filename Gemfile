@@ -63,5 +63,3 @@ group :test do
 end
 
 gem "tailwindcss-rails", "~> 3.0"
-
-gem "standardrb", "~> 1.0", group: :development
