@@ -1,14 +1,23 @@
 <div class="min-h-screen flex flex-col items-center justify-center p-6">
-
   <!-- Main Title -->
-  <header class="text-center mb-12">
+  <div class="text-center mb-8">
     <h1 class="text-5xl font-extrabold text-rose-600 tracking-tight">RoundTable.ai</h1>
     <p class="text-lg mt-2 text-gray-400">The greatest minds in the world, working on your everyday problems.</p>
-  </header>
+  </div>
 
   <!-- Instructions -->
   <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-center mb-8">
-    <h2 class="text-2xl font-semibold text-gray-300">Select 3 personas to sit at your RoundTable</h2>
+    <h2 class="text-2xl font-semibold text-gray-300">Select 3 <span class="text-green-600">Personas</span> to sit at your <span class="text-rose-600">RoundTable</span> or <a href="#" class="text-blue-600 hover:underline">surprise me!</a></h2>
+
+    <!-- Search Bar -->
+    <input type="text" placeholder="Search for Personas or select them below ..." class="w-full mt-4 px-4 py-2 bg-gray-700 placeholder-gray-400 rounded-lg focus:outline-none">
+
+    <!-- Selected Personas Chips -->
+    <div class="flex flex-wrap justify-center mt-4 space-x-2">
+      <span class="px-4 py-2 bg-rose-600 text-white rounded-full">Linus Torvalds</span>
+      <span class="px-4 py-2 bg-blue-600 text-white rounded-full">Ada Lovelace</span>
+      <span class="px-4 py-2 bg-green-600 text-white rounded-full">Elon Musk</span>
+    </div>
   </div>
 
   <!-- Persona Selection Cards -->
