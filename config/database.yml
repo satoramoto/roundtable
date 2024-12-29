@@ -1,24 +1,23 @@
-# SQLite. Versions 3.8.0 and up are supported.
-#   gem install sqlite3
-#
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem "sqlite3"
-#
+# Postgres is the only supported database for RoundTable because why would you use anything else?
 default: &default
-  adapter: sqlite3
+  adapter: postgresql
+  host: <%= ENV.fetch('DATABASE_HOST', 'localhost') %>
+  port: <%= ENV.fetch('DATABASE_PORT', 5432) %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  user: <%= ENV.fetch('DATABASE_USER') { 'postgres' } %>
+  password: <%= ENV.fetch('DATABASE_PASSWORD') { 'postgres' } %>
   timeout: 5000
 
 development:
   <<: *default
-  database: storage/development.sqlite3
+  database: roundtable_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: storage/test.sqlite3
+  database: roundtable_test
 
 
 # Store production database in the storage/ directory, which by default
@@ -26,16 +25,16 @@ test:
 production:
   primary:
     <<: *default
-    database: storage/production.sqlite3
+    database: roundtable_production_primary
   cache:
     <<: *default
-    database: storage/production_cache.sqlite3
+    database: roundtable_production_cache
     migrations_paths: db/cache_migrate
   queue:
     <<: *default
-    database: storage/production_queue.sqlite3
+    database: roundtable_production_queue
     migrations_paths: db/queue_migrate
   cable:
     <<: *default
-    database: storage/production_cable.sqlite3
+    database: roundtable_production_cable
     migrations_paths: db/cable_migrate

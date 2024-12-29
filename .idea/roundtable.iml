@@ -91,6 +91,7 @@
     <orderEntry type="library" scope="PROVIDED" name="ostruct (v0.6.1, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="parallel (v1.26.3, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="parser (v3.3.6.0, asdf: 3.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="pg (v1.5.6, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="propshaft (v1.1.0, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="psych (v5.2.2, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="public_suffix (v6.0.1, asdf: 3.3.4) [gem]" level="application" />
@@ -124,7 +125,6 @@
     <orderEntry type="library" scope="PROVIDED" name="solid_cable (v3.0.5, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="solid_cache (v1.0.6, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="solid_queue (v1.1.0, asdf: 3.3.4) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="sqlite3 (v2.4.1, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sshkit (v1.23.2, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="stimulus-rails (v1.3.4, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="stringio (v3.1.2, asdf: 3.3.4) [gem]" level="application" />
