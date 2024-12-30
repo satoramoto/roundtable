@@ -17,8 +17,8 @@ class ConversationsController < ApplicationController
     @conversation = Conversation.find(params[:id])
   end
 
-  def generate
-    @conversation = Conversation.find(params[:id])
+  # This method actually talks to the open ai client
+  def chat
   end
 
   private

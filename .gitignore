@@ -38,3 +38,6 @@
 
 # Ignore NPM
 /node_modules
+
+# Ignore the AI models that get downloaded during development
+/models
