@@ -17,6 +17,10 @@ class ConversationsController < ApplicationController
     @conversation = Conversation.find(params[:id])
   end
 
+  def generate
+    @conversation = Conversation.find(params[:id])
+  end
+
   private
 
   def conversation_params

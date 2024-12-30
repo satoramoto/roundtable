@@ -54,6 +54,7 @@
     <orderEntry type="library" scope="PROVIDED" name="concurrent-ruby (v1.3.4, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="connection_pool (v2.4.1, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="crass (v1.0.6, asdf: 3.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="csv (v3.3.2, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="date (v3.4.1, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="debug (v1.10.0, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="dotenv (v3.1.7, asdf: 3.3.4) [gem]" level="application" />
@@ -63,6 +64,7 @@
     <orderEntry type="library" scope="PROVIDED" name="et-orbi (v1.2.11, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="fugit (v1.11.1, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="globalid (v1.2.1, asdf: 3.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="httparty (v0.22.0, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="i18n (v1.14.6, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="importmap-rails (v2.1.0, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="io-console (v0.8.0, asdf: 3.3.4) [gem]" level="application" />
@@ -79,6 +81,7 @@
     <orderEntry type="library" scope="PROVIDED" name="mini_mime (v1.1.5, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="minitest (v5.25.4, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="msgpack (v1.7.5, asdf: 3.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="multi_xml (v0.7.1, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="net-imap (v0.5.4, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="net-pop (v0.1.2, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="net-protocol (v0.2.2, asdf: 3.3.4) [gem]" level="application" />
@@ -128,7 +131,7 @@
     <orderEntry type="library" scope="PROVIDED" name="sshkit (v1.23.2, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="stimulus-rails (v1.3.4, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="stringio (v3.1.2, asdf: 3.3.4) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="tailwindcss-rails (v3.0.0, asdf: 3.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="tailwindcss-rails (v3.1.0, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tailwindcss-ruby (v3.4.17, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thor (v1.3.2, asdf: 3.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thruster (v0.1.9, asdf: 3.3.4) [gem]" level="application" />

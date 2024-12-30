@@ -14,4 +14,9 @@ Rails.application.routes.draw do
 
   # Defines the route for viewing a conversation
   resources :conversations
+
+  # Debug controller but only in development
+  if Rails.env.development?
+    get "debug" => "debug#index"
+  end
 end
