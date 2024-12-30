@@ -18,7 +18,12 @@ class ConversationsController < ApplicationController
   end
 
   # This method actually talks to the open ai client
-  def chat
+  def chat(prompt)
+    open_ai_client = OpenAiClient.new
+    open_ai_client.chat_completions(messages: prompt, stream: true) do |chunk|
+      # Send the chunk to the front end over websockets
+      ActionCable.server.broadcast("conversation_#{params[:id]}", chunk: chunk)
+    end
   end
 
   private
