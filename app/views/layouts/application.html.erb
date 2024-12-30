@@ -23,7 +23,16 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="bg-gray-900">
+  <body class="bg-gray-900 min-h-screen flex flex-col items-center justify-center p-4">
+    <header class="text-center mb-8">
+      <h1 class="text-5xl font-extrabold text-rose-600 tracking-tight">
+        RoundTable.ai
+      </h1>
+      <p class="text-lg mt-2 text-gray-400">The greatest minds who ever lived, solving your everyday problems</p>
+    </header>
+
     <%= yield %>
+
+    <footer class="text-center text-gray-400 text-sm mt-8">❤️ Made in collaboration with humans and robots</footer>
   </body>
 </html>

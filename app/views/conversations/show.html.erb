@@ -1,52 +1,39 @@
-<div class="min-h-screen flex flex-col items-center justify-center p-4">
+<!-- Selected AI personas -->
+<div class="bg-gray-800 p-4 rounded-lg shadow-lg text-center mb-8 max-w-5xl">
+  <h2 class="text-2xl font-semibold text-gray-300">
+    At the <span class="text-rose-600">RoundTable</span> with
+    <span class="text-green-600 hover:underline">Albert Einstein</span>,
+    <span class="text-yellow-600 hover:underline">Nikola Tesla</span>, and
+    <span class="text-blue-600 hover:underline">Isaac Newton</span>
+  </h2>
+</div>
 
-  <!-- Title -->
-  <header class="text-center mb-8">
-    <h1 class="text-5xl font-extrabold text-rose-600 tracking-tight">
-      RoundTable.ai
-    </h1>
-    <p class="text-lg mt-2 text-gray-400">The greatest minds who ever lived, solving your everyday problems</p>
-  </header>
-
-  <!-- Selected AI personas -->
-  <div class="bg-gray-800 p-4 rounded-lg shadow-lg text-center mb-8 max-w-5xl">
-    <h2 class="text-2xl font-semibold text-gray-300">
-      At the <span class="text-rose-600">RoundTable</span> with
-      <span class="text-green-600 hover:underline">Albert Einstein</span>,
-      <span class="text-yellow-600 hover:underline">Nikola Tesla</span>, and
-      <span class="text-blue-600 hover:underline">Isaac Newton</span>
-    </h2>
+<!-- Chat container -->
+<div class="bg-gray-800 w-full max-w-5xl flex flex-col-reverse flex-grow rounded-lg p-4 shadow-lg">
+  <!-- Input Field with Send Button -->
+  <div class="w-full relative flex items-center shadow-lg">
+    <!-- Input Field -->
+    <input type="text" placeholder="Type your message..."
+           class="w-full bg-gray-800 text-white py-3 pl-4 pr-12 rounded-lg border-2 border-gray-600 placeholder-gray-400">
+    <!-- Send Button (Icon) -->
+    <button class="absolute right-4 text-gray-500 hover:text-gray-400 focus:outline-none">
+      ➤
+    </button>
   </div>
 
-  <!-- Chat container -->
-  <div class="bg-gray-800 w-full max-w-5xl flex flex-col-reverse flex-grow rounded-lg p-4 shadow-lg">
-    <!-- Input Field with Send Button -->
-    <div class="w-full relative flex items-center shadow-lg">
-      <!-- Input Field -->
-      <input type="text" placeholder="Type your message..."
-             class="w-full bg-gray-800 text-white py-3 pl-4 pr-12 rounded-lg border-2 border-gray-600 placeholder-gray-400">
-      <!-- Send Button (Icon) -->
-      <button class="absolute right-4 text-gray-500 hover:text-gray-400 focus:outline-none">
-        ➤
-      </button>
+  <!-- Chat Messages -->
+  <div class="flex flex-col space-y-4">
+    <!-- Message -->
+    <div class="flex items-start space-x-2">
+      <div class="bg-gray-300 text-gray-800 p-2 rounded-lg max-w-xs shadow-lg">
+        <p class="text-sm">Hello! How are you?</p>
+      </div>
     </div>
-
-    <!-- Chat Messages -->
-    <div class="flex flex-col space-y-4">
-      <%= turbo_frame_tag "messages" do %>
-    <!-- Message 1 -->
-<!--      <div class="flex items-start space-x-2">-->
-<!--        <div class="bg-gray-300 text-gray-800 p-2 rounded-lg max-w-xs shadow-lg">-->
-<!--          <p class="text-sm">Hello! How are you?</p>-->
-<!--        </div>-->
-<!--      </div>-->
-      <!-- Message 2 -->
-<!--      <div class="flex items-start space-x-2 justify-end">-->
-<!--        <div class="bg-blue-500 text-white p-2 rounded-lg max-w-xs shadow-lg">-->
-<!--          <p class="text-sm">I'm good, thanks! How about you?</p>-->
-<!--        </div>-->
-<!--      </div>-->
-      <% end %>
+    <!-- Message -->
+    <div class="flex items-end space-x-2">
+      <div class="bg-gray-300 text-gray-800 p-2 rounded-lg max-w-xs shadow-lg">
+        <p class="text-sm">I'm doing great! How can I help you?</p>
+      </div>
     </div>
   </div>
 </div>
