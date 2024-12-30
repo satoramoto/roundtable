@@ -7,23 +7,14 @@ class ConversationsController < ApplicationController
 
   def create
     # create a new conversation from the params
-    @conversation = Conversation.create(conversation_params)
-    respond_to do |format|
-      format.html { redirect_to conversation_path(@conversation) }
-    end
+    message = Message.new(content: conversation_params[:prompt], role: "user")
+    conversation = Conversation.new(conversation_params.merge(messages: [message]))
+    conversation.save!
+    redirect_to conversation_path(conversation)
   end
 
   def show
     @conversation = Conversation.find(params[:id])
-  end
-
-  # This method actually talks to the open ai client
-  def chat(prompt)
-    open_ai_client = OpenAiClient.new
-    open_ai_client.chat_completions(messages: prompt, stream: true) do |chunk|
-      # Send the chunk to the front end over websockets
-      ActionCable.server.broadcast("conversation_#{params[:id]}", chunk: chunk)
-    end
   end
 
   private

@@ -1,0 +1,14 @@
+<%= turbo_stream.append "messages" do %>
+  <div class="flex items-start space-x-2">
+    <% if @message.role == "assistant" %>
+      <div class="bg-gray-300 text-gray-800 p-2 rounded-lg max-w-xs shadow-lg">
+        <p class="text-sm"><%= @message.content %></p>
+      </div>
+    <% end %>
+    <% if @message.role == "user" %>
+      <div class="bg-blue-800 text-white p-2 rounded-lg max-w-xs shadow-lg justify-end">
+        <p class="text-sm"><%= @message.content %></p>
+      </div>
+    <% end %>
+  </div>
+<% end %>

@@ -23,17 +23,19 @@
 
   <!-- Chat Messages -->
   <div class="flex flex-col space-y-4">
-    <!-- Message -->
-    <div class="flex items-start space-x-2">
-      <div class="bg-gray-300 text-gray-800 p-2 rounded-lg max-w-xs shadow-lg">
-        <p class="text-sm">Hello! How are you?</p>
+    <%= turbo_frame_tag @conversation do %>
+    <% @conversation.messages.each do |message| %>
+    <% if message.role == "assistant" %>
+      <div class="bg-gray-300 text-gray-800 p-2 rounded-lg shadow-lg">
+        <p class="text-sm"><%= message.content %></p>
       </div>
-    </div>
-    <!-- Message -->
-    <div class="flex items-end space-x-2">
-      <div class="bg-gray-300 text-gray-800 p-2 rounded-lg max-w-xs shadow-lg">
-        <p class="text-sm">I'm doing great! How can I help you?</p>
+    <% end %>
+    <% if message.role == "user" %>
+      <div class="bg-blue-800 text-white p-2 rounded-lg shadow-lg">
+        <p class="text-sm"><%= message.content %></p>
       </div>
-    </div>
+    <% end %>
+    <% end %>
+    <% end %>
   </div>
 </div>
