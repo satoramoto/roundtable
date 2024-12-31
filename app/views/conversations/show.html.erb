@@ -9,17 +9,21 @@
 </div>
 
 <!-- Chat container -->
-<div class="bg-gray-800 w-full max-w-5xl flex flex-col-reverse flex-grow rounded-lg p-4 shadow-lg">
-  <!-- Input Field with Send Button -->
-  <div class="w-full relative flex items-center shadow-lg">
-    <!-- Input Field -->
-    <input type="text" placeholder="Type your message..."
-           class="w-full bg-gray-800 text-white py-3 pl-4 pr-12 rounded-lg border-2 border-gray-600 placeholder-gray-400">
-    <!-- Send Button (Icon) -->
-    <button class="absolute right-4 text-gray-500 hover:text-gray-400 focus:outline-none">
-      ➤
-    </button>
-  </div>
+  <div class="bg-gray-800 w-full max-w-5xl flex flex-col-reverse flex-grow rounded-lg p-4 shadow-lg">
+    <!-- Input Field with Send Button -->
+    <%= form_with model: @conversation do |f| %>
+      <div class="w-full relative flex items-center shadow-lg">
+        <!-- Input Field -->
+        <%= f.text_field :content, placeholder: "Type your message...",
+               class: "w-full bg-gray-800 text-white py-3 pl-4 pr-12
+               rounded-lg border-2 border-gray-600 placeholder-gray-400"
+        %>
+        <!-- Send Button (Icon) -->
+        <button class="absolute right-4 text-gray-500 hover:text-gray-400 focus:outline-none">
+          <%= f.submit "➤", class: "focus:outline-none" %>
+        </button>
+    </div>
+  <% end %>
 
   <!-- Chat Messages -->
   <div class="flex flex-col space-y-4">
