@@ -1,3 +1,4 @@
+<div class="flex mb-2 <% if message.role == "user" %>justify-end<% end %>">
 <% if message.role == "assistant" %>
   <div class="bg-gray-300 text-gray-800 p-2 rounded-lg shadow-lg">
     <p class="text-sm"><%= message.content %></p>
@@ -7,3 +8,4 @@
     <p class="text-sm"><%= message.content %></p>
   </div>
 <% end %>
+</div>
