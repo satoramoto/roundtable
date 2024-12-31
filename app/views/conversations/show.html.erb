@@ -24,18 +24,7 @@
   <!-- Chat Messages -->
   <div class="flex flex-col space-y-4">
     <%= turbo_frame_tag @conversation do %>
-    <% @conversation.messages.each do |message| %>
-    <% if message.role == "assistant" %>
-      <div class="bg-gray-300 text-gray-800 p-2 rounded-lg shadow-lg">
-        <p class="text-sm"><%= message.content %></p>
-      </div>
-    <% end %>
-    <% if message.role == "user" %>
-      <div class="bg-blue-800 text-white p-2 rounded-lg shadow-lg">
-        <p class="text-sm"><%= message.content %></p>
-      </div>
-    <% end %>
-    <% end %>
+    <% render @conversation.messages %>
     <% end %>
   </div>
 </div>
