@@ -10,22 +10,11 @@
   </div>
 
   <!-- Chat container -->
-  <div class="flex flex-col flex-1 bg-gray-800 w-full rounded-lg p-4 shadow-l overflow-auto">
+  <div class="bg-gray-800 flex flex-col flex-1  w-full rounded-lg p-4 shadow-l overflow-auto">
     <!-- Chat Messages -->
-<!--    <div class="">-->
-      <%#= turbo_frame_tag @conversation do %>
-        <%# render @conversation.messages %>
-      <%# end %>
-<!--    </div>-->
-
-    <!-- Mock Messages -->
-    <div class="flex flex-col flex-1 space-y-2 overflow-scroll">
-      <% 3.times do %>
-        <div class="bg-gray-300 text-gray-800 p-2 rounded-lg max-w-xs shadow-lg">
-          <p class="text-sm">Hello! How are you?</p>
-        </div>
-      <% end %>
-    </div>
+    <%= turbo_frame_tag @conversation, class: "flex-1 overflow-scroll" do %>
+      <% render @conversation.messages %>
+    <% end %>
 
     <div class="flex-none">
       <!-- Input Field with Send Button -->
