@@ -1,3 +1,3 @@
-<%= turbo_stream.append @message.conversation do %>
+<%= turbo_stream.prepend @message.conversation do %>
 <%= render @message %>
 <% end %>
