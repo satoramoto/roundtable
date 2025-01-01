@@ -1,6 +1,6 @@
-<div class="flex flex-col max-w-5xl flex-grow flex-shrink">
+<div class="bg-yellow-100 flex flex-col flex-1 min-w-3xl max-w-5xl overflow-auto">
   <!-- Selected AI personas -->
-  <div class="bg-gray-800 p-4 rounded-lg shadow-lg text-center mb-8 w-full">
+  <div class="bg-gray-800 flex-none w-full rounded-lg shadow-lg text-center mb-8 p-4">
     <h2 class="text-2xl font-semibold text-gray-300">
       At the <span class="text-rose-600">RoundTable</span> with
       <span class="text-green-600 hover:underline">Albert Einstein</span>,
@@ -10,31 +10,42 @@
   </div>
 
   <!-- Chat container -->
-  <div class="flex-grow flex-shrink bg-gray-800 w-full rounded-lg p-4 shadow-l">
+  <div class="flex flex-col flex-1 bg-gray-800 w-full rounded-lg p-4 shadow-l overflow-auto">
     <!-- Chat Messages -->
-    <div>
-      <%= turbo_frame_tag @conversation do %>
-        <% render @conversation.messages %>
+<!--    <div class="">-->
+      <%#= turbo_frame_tag @conversation do %>
+        <%# render @conversation.messages %>
+      <%# end %>
+<!--    </div>-->
+
+    <!-- Mock Messages -->
+    <div class="flex flex-col flex-1 space-y-2 overflow-scroll">
+      <% 3.times do %>
+        <div class="bg-gray-300 text-gray-800 p-2 rounded-lg max-w-xs shadow-lg">
+          <p class="text-sm">Hello! How are you?</p>
+        </div>
       <% end %>
     </div>
 
-    <!-- Input Field with Send Button -->
-    <%= form_with model: @message do |f| %>
-      <div class="w-full relative flex items-center shadow-lg">
-        <!-- Hidden Field for identifying the conversation -->
-        <%= f.hidden_field :conversation_id, value: @conversation.id %>
+    <div class="flex-none">
+      <!-- Input Field with Send Button -->
+      <%= form_with model: @message do |f| %>
+        <div class="w-full relative flex items-center shadow-lg">
+          <!-- Hidden Field for identifying the conversation -->
+          <%= f.hidden_field :conversation_id, value: @conversation.id %>
 
-        <!-- Input Field -->
-        <%= f.text_field :content, placeholder: "Type your message...",
-               class: "w-full bg-gray-800 text-white py-3 pl-4 pr-12
+          <!-- Input Field -->
+          <%= f.text_field :content, placeholder: "Type your message...",
+                           class: "w-full bg-gray-800 text-white py-3 pl-4 pr-12
                rounded-lg border-2 border-gray-600 placeholder-gray-400"
-        %>
+          %>
 
-        <!-- Send Button (Icon) -->
-        <button class="absolute right-4 text-gray-500 hover:text-gray-400 focus:outline-none">
-          <%= f.submit "➤", class: "focus:outline-none" %>
-        </button>
-      </div>
-    <% end %>
+          <!-- Send Button (Icon) -->
+          <button class="absolute right-4 text-gray-500 hover:text-gray-400 focus:outline-none">
+            <%= f.submit "➤", class: "focus:outline-none" %>
+          </button>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

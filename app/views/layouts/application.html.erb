@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" class="h-full">
   <head>
     <title><%= content_for(:title) || "Roundtable" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -23,8 +23,8 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="bg-gray-900 h-screen max-h-screen flex flex-col items-center justify-center p-2">
-    <header class="text-center mb-8">
+  <body class="bg-gray-900 h-full flex flex-col items-center justify-center margin-0 p-2">
+    <header class="flex-none text-center mb-8">
       <h1 class="text-5xl font-extrabold text-rose-600 tracking-tight">
         RoundTable.ai
       </h1>
@@ -33,6 +33,6 @@
 
     <%= yield %>
 
-    <footer class="text-center text-gray-400 text-sm mt-2">❤</footer>
+    <footer class="flex-none text-center text-gray-400 text-sm mt-8">❤</footer>
   </body>
 </html>
