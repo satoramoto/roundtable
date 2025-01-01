@@ -1,6 +1,6 @@
-<div class="bg-yellow-100 flex flex-col flex-1 min-w-3xl max-w-5xl overflow-auto">
+<div class="flex flex-col flex-1 min-w-3xl max-w-5xl overflow-auto">
   <!-- Selected AI personas -->
-  <div class="bg-gray-800 flex-none w-full rounded-lg shadow-lg text-center mb-8 p-4">
+  <div class="bg-gray-800 flex-none w-full rounded-lg shadow-lg text-center mb-2 p-4">
     <h2 class="text-2xl font-semibold text-gray-300">
       At the <span class="text-rose-600">RoundTable</span> with
       <span class="text-green-600 hover:underline">Albert Einstein</span>,
@@ -12,7 +12,7 @@
   <!-- Chat container -->
   <div class="bg-gray-800 flex flex-col flex-1  w-full rounded-lg p-4 shadow-l overflow-auto">
     <!-- Chat Messages -->
-    <%= turbo_frame_tag @conversation, class: "flex-1 overflow-scroll" do %>
+    <%= turbo_frame_tag @conversation, class: "flex flex-col-reverse flex-1 overflow-scroll" do %>
       <% render @conversation.messages %>
     <% end %>
 
