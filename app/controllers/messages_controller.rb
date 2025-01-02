@@ -12,7 +12,6 @@ class MessagesController < ApplicationController
     # Something about this seems wrong though. We respond with no content to browser on success. Seems funny.
     respond_to do |format|
       format.turbo_stream
-      format.json { render json: @message }
       format.html { redirect_to conversation_path(@message.conversation) }
     end
   end

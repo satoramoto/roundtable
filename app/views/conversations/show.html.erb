@@ -14,7 +14,7 @@
     <!-- Chat Messages -->
     <%= turbo_stream_from @conversation %>
     <div id="messages" class ="flex flex-col-reverse flex-1 overflow-scroll">
-      <%= render @conversation.messages %>
+      <%= render @conversation.messages.newest_first %>
     </div>
 
     <!-- Input Field with Send Button -->
