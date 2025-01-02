@@ -4,13 +4,15 @@ class MessagesController < ApplicationController
   def create
     @message = Message.create!(message_params.merge(role: "user"))
 
-    # When a message is created from the UI, we respond with a stream if the client supports turbo.
-    # The conversation page listens for new messages using websockets and appends them to the conversation.
-    # We return the message as JSON just like we would in a normal API response.
     # TODO I'm not sure if this is best practice with turbo streams but hey, I'm learning too!
-    # If the client doesn't support turbo, we redirect to the conversation page aka hard refresh.
+    # We are broadcasting all message creates in the model, so we don't have to do it here.
+    # This gets us two things for free:
+    # 1. The browser will automatically update with this message and the response from the bot.
+    # 2. This also keeps two browser windows in sync.
+    # Something about this seems wrong though. We respond with no content to browser on success. Seems funny.
     respond_to do |format|
-      format.turbo_stream { render json: @message }
+      format.turbo_stream
+      format.json { render json: @message }
       format.html { redirect_to conversation_path(@message.conversation) }
     end
   end

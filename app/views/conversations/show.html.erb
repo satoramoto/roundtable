@@ -19,7 +19,9 @@
 
     <!-- Input Field with Send Button -->
     <div class="flex-none">
-      <%= form_with model: @message do |f| %>
+      <%= form_with model: @message, data: { controller: "conversation",
+                                             action: "turbo:submit-end->conversation#reset",
+                                             target: "message_content" } do |f| %>
         <div class="w-full relative flex items-center shadow-lg">
           <!-- Hidden Field for identifying the conversation -->
           <%= f.hidden_field :conversation_id, value: @conversation.id %>
