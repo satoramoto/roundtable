@@ -8,7 +8,7 @@ class Message < ApplicationRecord
   default_scope { order(created_at: :desc) }
 
   # Whenever a message is created, we want to broadcast a message to the conversation channel
-  after_create_commit { broadcast_prepend_to conversation }
+  after_create_commit { broadcast_prepend_later_to conversation }
 
   # Whenever a message is created by a user, we need to trigger a response from the bot
   after_create_commit :trigger_bot_response, if: -> { role == "user" }

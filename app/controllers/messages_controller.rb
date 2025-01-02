@@ -5,11 +5,12 @@ class MessagesController < ApplicationController
     @message = Message.create!(message_params.merge(role: "user"))
 
     # When a message is created from the UI, we respond with a stream if the client supports turbo.
-    # The SPA listens on websockets for new messages and appends them to the conversation.
-    # The response here is essentially a fallback in case the client does not support websockets.
-    # If the client does not support turbo, we redirect to the conversation page.
+    # The conversation page listens for new messages using websockets and appends them to the conversation.
+    # We return the message as JSON just like we would in a normal API response.
+    # TODO I'm not sure if this is best practice with turbo streams but hey, I'm learning too!
+    # If the client doesn't support turbo, we redirect to the conversation page aka hard refresh.
     respond_to do |format|
-      format.turbo_stream
+      format.turbo_stream { render json: @message }
       format.html { redirect_to conversation_path(@message.conversation) }
     end
   end
