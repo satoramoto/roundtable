@@ -12,12 +12,13 @@
   <!-- Chat container -->
   <div class="bg-gray-800 flex flex-col flex-1  w-full rounded-lg p-4 shadow-l overflow-auto">
     <!-- Chat Messages -->
-    <%= turbo_frame_tag @conversation, class: "flex flex-col-reverse flex-1 overflow-scroll" do %>
-      <% render @conversation.messages %>
-    <% end %>
+    <%= turbo_stream_from @conversation %>
+    <div id="messages" class ="flex flex-col-reverse flex-1 overflow-scroll">
+      <%= render @conversation.messages %>
+    </div>
 
+    <!-- Input Field with Send Button -->
     <div class="flex-none">
-      <!-- Input Field with Send Button -->
       <%= form_with model: @message do |f| %>
         <div class="w-full relative flex items-center shadow-lg">
           <!-- Hidden Field for identifying the conversation -->
