@@ -1,11 +1,9 @@
-<div class="flex mb-2 <% if message.role == "user" %>justify-end<% end %>">
-<% if message.role == "assistant" %>
-  <div class="bg-gray-300 text-gray-800 p-2 rounded-lg shadow-lg">
-    <p class="text-sm"><%= message.content %></p>
+<% bg_color = message.role == "assistant" ? "bg-gray-300" : "bg-blue-800" %>
+<% text_color = message.role == "assistant" ? "text-gray-800" : "text-white" %>
+<% justify = message.role == "assistant" ? "justify-start" : "justify-end" %>
+
+<div class="flex mb-2 <%= justify %>">
+  <div class="<%= bg_color + " " + text_color %> p-2 rounded-lg shadow-lg space-y-4">
+    <%= simple_format message.content %>
   </div>
-<% elsif message.role == "user" %>
-  <div class="bg-blue-800 text-white p-2 rounded-lg shadow-lg">
-    <p class="text-sm"><%= message.content %></p>
-  </div>
-<% end %>
 </div>
