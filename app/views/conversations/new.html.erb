@@ -1,28 +1,27 @@
 <div class="flex flex-col items-center justify-center">
   <!-- Main Form -->
   <%= form_with model: @conversation do |f| %>
-    <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
-    <h2 class="text-2xl font-semibold text-gray-300">Help me
-      <span class="text-green-600 hover:underline">Albert Einstein</span>,
-      <span class="text-yellow-600 hover:underline">Nikola Tesla</span>, and
-      <span class="text-blue-600 hover:underline">Isaac Newton</span>
-    </h2>
+    <div class="bg-gray-800 p-4 rounded-lg shadow-lg text-center">
+      <h2 class="text-2xl font-semibold text-gray-300 mb-4">Help me
+        <span contenteditable id="persona1" class="focus:outline-none focus:border-none text-green-600 underline">Albert Einstein</span>,
+        <span contenteditable id="persona2" class="focus:outline-none focus:border-none text-yellow-600 underline">Nikola Tesla</span>, and
+        <span contenteditable id="persona3" class="focus:outline-none focus:border-none text-blue-600 underline">Isaac Newton</span>
+      </h2>
 
-    <!-- Search Bar -->
-    <!-- Input Field with Send Button -->
-    <div class="mt-6 w-full max-w-3xl shadow-lg">
-      <div class="relative flex items-center">
-        <!-- Input Field -->
-        <%= f.text_field :prompt, placeholder: "I'm working on a new branch of physics and I need some guidance.",
-               class: "w-full bg-gray-800 text-white py-3 pl-4 pr-12 rounded-lg border-2 border-gray-600
-               placeholder-gray-400" %>
+      <!-- Input Field with Send Button -->
+      <div class="w-full max-w-3xl shadow-lg">
+        <div class="relative flex items-center">
+          <!-- Input Field -->
+          <%= f.text_field :prompt, autofocus: true, placeholder: "I'm working on a new branch of physics and I need some guidance.",
+                 class: "w-full bg-gray-800 text-white py-3 pl-4 pr-12 rounded-lg border-2 border-gray-600
+                 placeholder-gray-400" %>
 
-        <!-- Send Button (Icon) -->
-        <button class="absolute right-4 text-gray-500 hover:text-gray-400 focus:outline-none">
-          <%= f.submit "➤", class: "focus:outline-none" %>
-        </button>
+          <!-- Send Button (Icon) -->
+          <button class="absolute right-4 text-gray-500 hover:text-gray-400 focus:outline-none">
+            <%= f.submit "➤", class: "focus:outline-none" %>
+          </button>
+        </div>
       </div>
     </div>
-  </div>
   <% end %>
 </div>
