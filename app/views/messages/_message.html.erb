@@ -1,9 +1,13 @@
-<% bg_color = message.role == "assistant" ? "bg-gray-300" : "bg-blue-800" %>
-<% text_color = message.role == "assistant" ? "text-gray-800" : "text-white" %>
 <% justify = message.role == "assistant" ? "justify-start" : "justify-end" %>
 
-<div class="flex mb-2 <%= justify %>">
-  <div class="<%= bg_color + " " + text_color %> p-2 rounded-lg shadow-lg space-y-4">
+<div class="flex mb-2 flex-grow <%= justify %>">
+<% if message.role == "assistant" %>
+    <article class="prose prose-invert">
+      <%= markdown message.content %>
+    </article>
+<% else %>
+  <div class="bg-rose-600 text-white p-2 rounded-lg shadow-lg space-y-4">
     <%= simple_format message.content %>
   </div>
+<% end %>
 </div>

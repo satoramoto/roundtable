@@ -10,7 +10,7 @@
   </div>
 
   <!-- Chat container -->
-  <div class="bg-gray-800 flex flex-col flex-1  w-full rounded-lg p-4 shadow-l overflow-auto">
+  <div class="bg-gray-800 flex flex-col flex-1 w-full rounded-lg p-4 shadow-l overflow-auto">
     <!-- Chat Messages -->
     <%= turbo_stream_from @conversation %>
     <div id="messages" class ="flex flex-col-reverse flex-1 overflow-scroll">

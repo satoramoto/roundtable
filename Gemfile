@@ -44,6 +44,10 @@ gem "thruster", require: false
 gem "tailwindcss-rails", "~> 3.0"
 
 # Use the HTTParty gem for making HTTP requests [https://github.com/jnunemaker/httparty]
+gem "faraday", "~> 2.12"
+
+# Markdown rendering with redcarpet
+gem "redcarpet", "~> 3.5"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -66,5 +70,3 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
-
-gem "faraday", "~> 2.12"

@@ -16,7 +16,7 @@ class OpenAiClient
 
   def chat_completions(messages:, stream: true)
     # TODO support more of the openai API completions options like temperature, max_tokens, etc.
-    payload = { messages: messages, temperature: 0.7 }
+    payload = { messages: messages, temperature: 0.8 }
 
     response = @connection.post("/v1/chat/completions") do |req|
       req.headers["Content-Type"] = "application/json"
