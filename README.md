@@ -16,13 +16,31 @@ This project assumes basic programming knowledge, but aims to be accessible to a
 
 More subjectively, I believe this project is a great example of how to build a modern web application.
 
-## Getting Started TLDR
-1. Clone the repository
-2. Run `docker compose up`
-3. Visit `http://localhost:3000` in your browser
+## Getting Started
+Let's walk through the details of how to get this project up and running on your local machine.
+If you know your way around docker you can simply:
 
-## Prerequisites
-### The Code
+```shell
+cd ~/Source # or wherever you keep your projects
+git clone https://github.com/satoramoto/roundtable.git
+cd roundtable
+docker compose up
+```
+The application will be available at `http://localhost:3000`.
+
+## Development
+If you want to make significant changes to the project, you will probably want to run the application outside of Docker.
+This way you can take advantage of live reloading and other development tools like a debugger.
+
+You may still wish to use Docker so you don't have to install all the dependencies on your machine.
+In this case you can rebuild the Docker image after your changes:
+
+```shell
+docker compose build
+```
+
+### Prerequisites
+#### The Code
 You can clone this repository to your local machine by running the following command:
 
 ```shell
@@ -31,13 +49,13 @@ git clone https://github.com/satoramoto/roundtable.git
 cd roundtable
 ```
 
-### Docker
+#### Docker
 The application and it's dependencies are dockerized, so you will need to have Docker installed on your machine.
 
 If you don't have Docker installed, you can download it from the 
 [official website](https://www.docker.com/products/docker-desktop).
 
-### Ruby (Optional)
+#### Ruby (Optional)
 The dockerized version of the project contains everything you need to run the web application.
 
 However, if you wish to run the web application locally without Docker, 
