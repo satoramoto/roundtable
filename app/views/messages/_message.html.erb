@@ -1,10 +1,10 @@
 <% justify = message.role == "assistant" ? "justify-start" : "justify-end" %>
 
-<div class="flex mb-2 flex-grow <%= justify %>">
+<div class="flex mb-2 <%= justify %>">
 <% if message.role == "assistant" %>
-    <article class="prose prose-invert">
-      <%= markdown message.content %>
-    </article>
+  <article class="prose prose-invert max-w-5xl">
+    <%= markdown message.content %>
+  </article>
 <% else %>
   <div class="bg-rose-600 text-white p-2 rounded-lg shadow-lg space-y-4">
     <%= simple_format message.content %>

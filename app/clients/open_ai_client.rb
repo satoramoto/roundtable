@@ -6,7 +6,7 @@ require "faraday"
 require "json"
 
 class OpenAiClient
-  BASE_URL = ENV.fetch("OPEN_AI_BACKEND") { "http://localhost:8080" }
+  BASE_URL = ENV.fetch("OPEN_AI_BACKEND") { "http://localhost:11434" }
 
   def initialize(base_url: BASE_URL)
     @connection = Faraday.new(url: base_url) do |conn|
@@ -16,7 +16,7 @@ class OpenAiClient
 
   def chat_completions(messages:, stream: true)
     # TODO support more of the openai API completions options like temperature, max_tokens, etc.
-    payload = { messages: messages, temperature: 0.8 }
+    payload = { model: "llama3.2", messages: messages, temperature: 0.8 }
 
     response = @connection.post("/v1/chat/completions") do |req|
       req.headers["Content-Type"] = "application/json"

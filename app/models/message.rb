@@ -14,3 +14,5 @@ class Message < ApplicationRecord
   # This is done in a background job to keep the response time low
   after_create_commit { GetResponseFromChatbotJob.perform_later(conversation) if role == "user" }
 end
+
+
