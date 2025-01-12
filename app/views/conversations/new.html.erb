@@ -1,4 +1,4 @@
-<div class="flex flex-col items-center justify-center">
+<div class="flex flex-col items-center justify-center ">
   <!-- Main Form -->
   <%= form_with model: @conversation do |f| %>
     <div class="bg-gray-800 p-4 rounded-lg shadow-lg text-center">
@@ -9,7 +9,7 @@
       </h2>
 
       <!-- Input Field with Send Button -->
-      <div class="w-full max-w-3xl shadow-lg">
+      <div class="w-full shadow-lg">
         <div class="relative flex items-center">
           <!-- Input Field -->
           <%= f.text_field :prompt, autofocus: true, placeholder: "Help me organize my thoughts...",
