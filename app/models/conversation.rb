@@ -1,4 +1,7 @@
 class Conversation < ApplicationRecord
+  # Tells ActiveRecord that a conversation can have many messages
+  # dependent: :destroy ensures that if a conversation is deleted, all associated messages are also deleted
+  # The Conversation is considered the parent and the Message is considered the child in this relationship
   has_many :messages, dependent: :destroy
 
   # Set default values for the personas and prompt fields.

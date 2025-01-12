@@ -15,25 +15,28 @@ class OpenAiClient
   end
 
   def chat_completions(messages:, stream: true)
-    # TODO support more of the openai API completions options like temperature, max_tokens, etc.
-    payload = { model: "llama3.2", messages: messages, temperature: 0.8 }
+    payload = { model: "llama3.2", messages: messages, temperature: 0.8, stream: stream }
 
+    last_chunk = nil
     response = @connection.post("/v1/chat/completions") do |req|
       req.headers["Content-Type"] = "application/json"
       req.body = JSON.generate(payload)
-
-      # TODO actually use this
-      # This is where we get that fancy effect of the bot typing
       if stream
         req.options.on_data = Proc.new do |chunk, _|
-          # TODO broadcast this to the message stream
-          puts "Streamed chunk: #{chunk.strip}" # Process each chunk
+          last_chunk = JSON.parse(chunk[6..-1]) # remove "data: " prefix and parse JSON
+          yield last_chunk
+        rescue
+          # If we can't parse the chunk, assume this is the last one, don't yield
         end
       end
     end
 
     if response.success?
-      JSON.parse(response.body) # Return parsed JSON response
+      if stream
+        last_chunk
+      else
+        JSON.parse(response.body)
+      end
     else
       raise "Error: #{response.status} - #{response.body}"
     end
