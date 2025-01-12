@@ -8,7 +8,7 @@ class ConversationsController < ApplicationController
   def create
     # create a new conversation from the params
     message = Message.new(content: conversation_params[:prompt], role: "user")
-    conversation = Conversation.new(conversation_params.merge(messages: [message]))
+    conversation = Conversation.new(conversation_params.merge(messages: [ message ]))
     conversation.save!
     redirect_to conversation_path(conversation)
   end

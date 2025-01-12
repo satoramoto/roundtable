@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   # Defines the route for viewing a conversation
   resources :conversations
-  resources :messages, only: [:create]
+  resources :messages, only: [ :create ]
 
   # Debug controller but only in development
   if Rails.env.development?
