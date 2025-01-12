@@ -2,7 +2,7 @@
   <!-- Main Form -->
   <%= form_with model: @conversation do |f| %>
     <div class="bg-gray-800 p-4 rounded-lg shadow-lg text-center">
-      <h2 class="text-2xl font-semibold text-gray-300 mb-4">Help me
+      <h2 class="text-sm sm:text-xl md:text-2xl font-semibold text-gray-300 mb-4">Help me
         <span class="focus:outline-none focus:border-none text-green-600 underline">Albert Einstein</span>,
         <span class="focus:outline-none focus:border-none text-yellow-600 underline">Nikola Tesla</span>, and
         <span class="focus:outline-none focus:border-none text-blue-600 underline">Isaac Newton</span>
@@ -12,8 +12,8 @@
       <div class="w-full max-w-3xl shadow-lg">
         <div class="relative flex items-center">
           <!-- Input Field -->
-          <%= f.text_field :prompt, autofocus: true, placeholder: "I'm working on a new branch of physics and I need some guidance.",
-                 class: "w-full bg-gray-800 text-white py-3 pl-4 pr-12 rounded-lg border-2 border-gray-600
+          <%= f.text_field :prompt, autofocus: true, placeholder: "Help me organize my thoughts...",
+                 class: "text-sm sm:text-xl w-full bg-gray-800 text-white py-1 pl-4 pr-12 rounded-lg border-2 border-gray-600
                  placeholder-gray-400" %>
 
           <!-- Send Button (Icon) -->
