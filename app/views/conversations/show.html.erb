@@ -1,24 +1,14 @@
-<div class="flex flex-col flex-1 max-w-5xl overflow-auto">
-  <!-- Selected AI personas -->
-  <div class="bg-gray-800 flex-none w-full rounded-lg shadow-lg text-center mb-2 p-4">
-    <h2 class="text-2xl font-semibold text-gray-300">
-      At the <span class="text-rose-600">RoundTable</span> with
-      <span class="text-green-600 hover:underline">Albert Einstein</span>,
-      <span class="text-yellow-600 hover:underline">Nikola Tesla</span>, and
-      <span class="text-blue-600 hover:underline">Isaac Newton</span>
-    </h2>
-  </div>
-
+<div class="flex flex-col flex-1 w-full max-w-5xl overflow-auto shadow-xl">
   <!-- Chat container -->
-  <div class="bg-gray-800 flex flex-col flex-1 w-full rounded-lg p-4 shadow-l overflow-auto">
+  <div class="bg-gray-800 flex flex-col flex-1 w-full rounded-lg p-4 overflow-auto">
     <!-- Chat Messages -->
     <%= turbo_stream_from @conversation %>
-    <div id="messages" class ="flex flex-col-reverse flex-1 overflow-scroll">
+    <div id="messages" class ="flex flex-col-reverse rounded-lg flex-1 overflow-scroll">
       <%= render @conversation.messages.newest_first %>
     </div>
 
     <!-- Input Field with Send Button -->
-    <div class="flex-none">
+    <div class="flex-none mt-2 shadow-lg">
       <%= form_with model: @message, data: { controller: "conversation",
                                              action: "turbo:submit-end->conversation#reset",
                                              target: "message_content" } do |f| %>

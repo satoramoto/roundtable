@@ -14,31 +14,31 @@ class OpenAiClient
     end
   end
 
-  def chat_completions(messages:, stream: true)
-    payload = { model: "llama3.2", messages: messages, temperature: 0.8, stream: stream }
+  def chat_completions(messages)
+    # There's a lot of stuff happening here, it's easy to miss the details
+    # The key parts of the payload are the messages and the temperature
+    #
+    # "messages" is an array of all the messages in the conversation so far
+    # This is what allows the model to generate a response based on the context of the conversation
+    #
+    # The "temperature" controls the randomness of the response
+    # Higher values like 0.8 will generate more creative responses, but lower values like 0.2 will be more predictable
+    payload = { model: "llama3.2", messages: messages, temperature: 0.8, stream: true }
 
-    last_chunk = nil
-    response = @connection.post("/v1/chat/completions") do |req|
+    # The response from the API is streamed in chunks
+    # We yield each chunk to the caller so they can process it
+    # This is how we can update the message model in real-time
+    @connection.post("/v1/chat/completions") do |req|
       req.headers["Content-Type"] = "application/json"
       req.body = JSON.generate(payload)
-      if stream
-        req.options.on_data = Proc.new do |chunk, _|
-          last_chunk = JSON.parse(chunk[6..-1]) # remove "data: " prefix and parse JSON
-          yield last_chunk
-        rescue
-          # If we can't parse the chunk, assume this is the last one, don't yield
-        end
+      req.options.on_data = Proc.new do |chunk, _|
+        Rails.logger.info("Received chunk: #{chunk}")
+        last_chunk = JSON.parse(chunk[6..-1]) # remove "data: " prefix and parse JSON
+        yield last_chunk
+      rescue
+        # If there's an error parsing the chunk, we just assume the stream is done
+        # FIXME This could be better, but it's a simple way to handle the error
       end
-    end
-
-    if response.success?
-      if stream
-        last_chunk
-      else
-        JSON.parse(response.body)
-      end
-    else
-      raise "Error: #{response.status} - #{response.body}"
     end
   end
 end
