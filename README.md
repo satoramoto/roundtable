@@ -10,34 +10,32 @@ This project assumes basic programming knowledge, but aims to be accessible to a
 ## Features & Concepts
 - Fully functional chatbot with a custom system prompt
 - Real-time UI updates with Turbo Streams
-- AI backend using `LocalAI` to allow any AI backend to be plugged in
-- Dockerized for easy deployment and development
-- CI/CD with Github Actions
-
-More subjectively, I believe this project is a great example of how to build a modern web application.
+- AI backend using `ollama` to allow any AI backend to be plugged in
+- Dockerized database for quick setup
+- Basic CI/CD with Github Actions
 
 ## Getting Started
-Let's walk through the details of how to get this project up and running on your local machine.
-If you know your way around docker you can simply:
+### Pre-requisites
+- Docker
+- asdf
+- overmind
+
+On mac you can install these with homebrew. 
+
+Be careful if you already have docker desktop installed not to install it again.
+```shell
+brew install docker asdf overmind
+```
+
 
 ```shell
 cd ~/Source # or wherever you keep your projects
 git clone https://github.com/satoramoto/roundtable.git
 cd roundtable
-docker compose up
+asdf install
+overmind start
 ```
-The application will be available at `http://localhost:3000`.
-
-## Development
-If you want to make significant changes to the project, you will probably want to run the application outside of Docker.
-This way you can take advantage of live reloading and other development tools like a debugger.
-
-You may still wish to use Docker so you don't have to install all the dependencies on your machine.
-In this case you can rebuild the Docker image after your changes:
-
-```shell
-docker compose build
-```
+The application will be available at `http://localhost:5000`.
 
 ### Prerequisites
 #### The Code
@@ -47,29 +45,6 @@ You can clone this repository to your local machine by running the following com
 cd ~/Source # or wherever you keep your projects
 git clone https://github.com/satoramoto/roundtable.git
 cd roundtable
-```
-
-#### Docker
-The application and it's dependencies are dockerized, so you will need to have Docker installed on your machine.
-
-If you don't have Docker installed, you can download it from the 
-[official website](https://www.docker.com/products/docker-desktop).
-
-#### Ruby (Optional)
-The dockerized version of the project contains everything you need to run the web application.
-
-However, if you wish to run the web application locally without Docker, 
-you will need to have Ruby installed on your machine.
-
-The project has both a `.ruby-version` and `.tool-versions` file which specify the version of Ruby to use.
-
-I personally recommend `asdf` for managing Ruby versions, but you can use `rvm` or `rbenv` as well.
-
-See the [asdf-vm](https://asdf-vm.com/#/core-manage-asdf) website for instructions on how to install `asdf`.
-
-```shell
-# From the project root
-asdf install
 ```
 
 ## Why Ruby on Rails?
@@ -117,14 +92,6 @@ You may find the following bits interesting:
 If you have any ideas for how this project could be improved, please open an issue or a pull request.
 
 I would love to see this become the most useful starting point for AI chatbots and new developers.
-
-## Hire Me
-Need an AI "expert" or Rails dev? 
-I have over a decade of professional experience building large systems in a range of languages.
-
-I have been working daily with Ruby on Rails for the last 5 years, 
-but I can speak python, java, and go if those are your style. 
-If you have a project you think I can help on, I'd love to chat!
 
 ## License
 This project is licensed under the MIT License. See LICENSE.txt for details.

@@ -1,4 +1,4 @@
 web: bin/rails server
 css: bin/rails tailwindcss:watch
 db: docker compose up db
-llama: llama-server --model models/llama-3.2-3b-instruct-q8_0.gguf
+ollama: ollama run llama3.1
