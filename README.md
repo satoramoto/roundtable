@@ -16,17 +16,19 @@ This project assumes basic programming knowledge, but aims to be accessible to a
 
 ## Getting Started
 ### Pre-requisites
-- Docker
-- asdf
-- overmind
+- Docker (for a quick contained postgres database)
+- asdf (to install ruby)
+- ollama (to run the AI models)
+- overmind (to run all the services)
 
-On mac you can install these with homebrew. 
+On mac you can install most of these with [homebrew](https://brew.sh/). 
 
 Be careful if you already have docker desktop installed not to install it again.
 ```shell
 brew install docker asdf overmind
 ```
 
+See The [Ollama website](https://ollama.com/download) for instructions to install olama.
 
 ```shell
 cd ~/Source # or wherever you keep your projects
