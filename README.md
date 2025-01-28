@@ -7,7 +7,7 @@ developers looking to build their own AI chatbot as quickly as possible.
 
 This project assumes basic programming knowledge, but aims to be accessible to anyone who is willing to learn.
 
-https://github.com/user-attachments/assets/d13f4e28-0649-40ce-a55e-2b16210fdafd
+https://github.com/user-attachments/assets/890f8861-30d9-47d4-a033-dce5061ec00f
 
 ## Features & Concepts
 - Fully functional chatbot with a custom system prompt
