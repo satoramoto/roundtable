@@ -37,7 +37,7 @@ See The [Ollama website](https://ollama.com/download) for instructions to instal
 cd ~/Source # or wherever you keep your projects
 git clone https://github.com/satoramoto/roundtable.git
 cd roundtable
-asdf install
+asdf install && bundle install
 overmind start
 ```
 The application will be available at `http://localhost:5000`.
