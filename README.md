@@ -32,6 +32,7 @@ brew install docker asdf overmind
 
 See The [Ollama website](https://ollama.com/download) for instructions to install olama.
 
+### Getting the code and running the project
 ```shell
 cd ~/Source # or wherever you keep your projects
 git clone https://github.com/satoramoto/roundtable.git
@@ -41,17 +42,19 @@ overmind start
 ```
 The application will be available at `http://localhost:5000`.
 
-### Prerequisites
-#### The Code
-You can clone this repository to your local machine by running the following command:
+## FAQ & More
+### Why did you do "stupid thing" or "Why didn't you do "smart thing"?
+There were a number of features/approaches/etc I considered when doing this project, 
+most of which were trade-offs between speed and complexity.
 
-```shell
-cd ~/Source # or wherever you keep your projects
-git clone https://github.com/satoramoto/roundtable.git
-cd roundtable
-```
+I wanted to make this project as simple as possible to get started with,
+so I made a lot of decisions that may not be the best for every use case.
 
-## Why Ruby on Rails?
+By no means is this a production-ready chatbot, but it should be a good starting point for most people.
+
+I welcome pull requests if you have a better way to do something, or generally want to improve this example.
+
+### Why Ruby on Rails?
 I built this project because I wanted to learn more about AI and chatbots.
 I chose Rails because it's a mature framework with a large community and a lot of resources.
 
@@ -64,7 +67,7 @@ Even if you're not familiar with Ruby, you should be able to follow along. Pytho
 Speaking of opinions, this project uses the Turbo and Hotwire libraries 
 instead of React or some other fancy front-end framework.
 
-## Why Turbo and Hotwire?
+### Why not React / Why Turbo and Hotwire?
 Because we want to go fast. You wanted to learn about AI, not JavaScript frameworks, right?
 
 Turbo and Hotwire are libraries from the creators of Rails that make it easy to 
@@ -74,7 +77,7 @@ I think you'll find it easier to get started with Turbo and Hotwire than with Re
 But if you're already comfortable with those libraries, 
 you can fork this project and use `react-rails` or whatever else to build your front-end.
 
-## Going Further
+### Going Further
 Fork this repository and don't look back! Take whatever you need and ditch the rest. 
 
 This project is meant to get you started quickly with all the basics. 
@@ -91,11 +94,6 @@ You may find the following bits interesting:
 - The System Prompt
 - The GitHub actions for CI/CD
 - Turbo and Hotwire as an alternative to React
-
-## Contributing
-If you have any ideas for how this project could be improved, please open an issue or a pull request.
-
-I would love to see this become the most useful starting point for AI chatbots and new developers.
 
 ## License
 This project is licensed under the MIT License. See LICENSE.txt for details.
