@@ -41,7 +41,7 @@ gem "thruster", require: false
 # gem "image_processing", "~> 1.2"
 
 # Use Tailwind CSS for styles [https://tailwindcss.com]
-gem "tailwindcss-rails", "~> 3.3"
+gem "tailwindcss-rails", "~> 4.0"
 
 # Use the HTTParty gem for making HTTP requests [https://github.com/jnunemaker/httparty]
 gem "faraday", "~> 2.12"
