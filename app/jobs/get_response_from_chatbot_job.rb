@@ -28,12 +28,16 @@ class GetResponseFromChatbotJob < ApplicationJob
       # The message model updates every time we get a new chunk, which triggers the UI to update in real-time via Turbo
       # FIXME This is not very efficient, but it's a simple way to get the real-time updates working
       # FIXME An improvement would be to stream the chunks directly to the UI, and update the model once at the end
-      puts "Helllo"
       content << chunk["choices"][0]["delta"]["content"]
-      next if content.blank? || chunk["choices"][0]["finish_reason"]
-      message.update!(content: content, role: "assistant", conversation: conversation)
+      skip = content.blank? || chunk["choices"][0]["finish_reason"]
+      if skip
+        Rails.logger.debug("Chunk is empty or finish_reason is present, skipping update")
+        next
+      else
+        Rails.logger.debug("Updating message with content: #{content}")
+        message.update!(content: content, role: "assistant", conversation: conversation)
+      end
     end
-
   rescue StandardError => e
     # If anything goes wrong we make a fake message to indicate the bot is having trouble
     # This way the user knows something is wrong, and it doesn't look like the bot is just ignoring them
