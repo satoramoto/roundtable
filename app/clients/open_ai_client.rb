@@ -35,14 +35,23 @@ class OpenAiClient
       req.headers["Authorization"] = "Bearer #{AUTH_TOKEN}" if AUTH_TOKEN
 
       req.body = JSON.generate(payload)
-      req.options.on_data = Proc.new do |chunk, _|
-        Rails.logger.info("Received chunk: #{chunk}")
-        last_chunk = JSON.parse(chunk[6..-1]) # remove "data: " prefix and parse JSON
-        yield last_chunk
+      req.options.on_data = Proc.new do |stream, _|
+        # Chunks are separated by newlines in the stream
+        # We need to split the chunk and parse the JSON
+        chunks = stream.split("\n")
+        chunks.each do |chunk|
+          next if chunk.empty?
+          begin
+            data = JSON.parse(chunk[6..-1])
+            yield data
+          rescue JSON::ParserError => e
+            Rails.logger.error("Error parsing chunk: #{chunk}, error: #{e.message}")
+          end
+        end
       rescue StandardError => e
         # If there's an error parsing the chunk, we just assume the stream is done
         # FIXME This could be better, but it's a simple way to handle the error
-        Rails.logger.error("Error parsing chunk: #{chunk}, error: #{e.message}")
+        Rails.logger.error("Error parsing chunk: #{stream}, error: #{e.message}")
       end
     end
   end

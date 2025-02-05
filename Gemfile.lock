@@ -406,6 +406,7 @@ DEPENDENCIES
   brakeman
   capybara
   debug
+  dotenv
   faraday (~> 2.12)
   importmap-rails
   jbuilder

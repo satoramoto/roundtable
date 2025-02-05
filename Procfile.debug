@@ -1,4 +1,3 @@
 # Assumes you are running the rails app separately with the debugger in your IDE
 css: bin/rails tailwindcss:watch
 db: docker compose up db
-ollama: ollama run llama3.1
