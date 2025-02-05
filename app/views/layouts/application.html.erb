@@ -35,6 +35,11 @@
 
     <%= yield %>
 
-    <footer class="flex-none text-center text-gray-400 text-sm mt-2">❤</footer>
+    <footer class="flex text-center text-gray-400 text-sm mt-2">
+      <%= image_tag "github.png", width: 20 %>
+      <a href="https://github.com/satoramoto/roundtable" class="ml-2 hover:underline">
+        Use RoundTable as a template for your own chatbot
+      </a>
+    </footer>
   </body>
 </html>
