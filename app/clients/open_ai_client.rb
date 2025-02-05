@@ -39,10 +39,10 @@ class OpenAiClient
         Rails.logger.info("Received chunk: #{chunk}")
         last_chunk = JSON.parse(chunk[6..-1]) # remove "data: " prefix and parse JSON
         yield last_chunk
-      rescue
+      rescue StandardError => e
         # If there's an error parsing the chunk, we just assume the stream is done
         # FIXME This could be better, but it's a simple way to handle the error
-        Rails.logger.error("Error parsing chunk: #{chunk}")
+        Rails.logger.error("Error parsing chunk: #{chunk}, error: #{e.message}")
       end
     end
   end
