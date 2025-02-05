@@ -31,10 +31,10 @@ class GetResponseFromChatbotJob < ApplicationJob
       content << chunk["choices"][0]["delta"]["content"]
       skip = content.blank? || chunk["choices"][0]["finish_reason"]
       if skip
-        Rails.logger.debug("Chunk is empty or finish_reason is present, skipping update")
+        Rails.logger.info("Chunk is empty or finish_reason is present, skipping update")
         next
       else
-        Rails.logger.debug("Updating message with content: #{content}")
+        Rails.logger.info("Updating message with content: #{content}")
         message.update!(content: content, role: "assistant", conversation: conversation)
       end
     end
