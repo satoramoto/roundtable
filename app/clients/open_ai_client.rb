@@ -42,6 +42,7 @@ class OpenAiClient
       rescue
         # If there's an error parsing the chunk, we just assume the stream is done
         # FIXME This could be better, but it's a simple way to handle the error
+        Rails.logger.error("Error parsing chunk: #{chunk}")
       end
     end
   end
