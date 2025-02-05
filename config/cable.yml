@@ -12,3 +12,6 @@ production:
   adapter: redis
   url: <%= ENV['REDIS_URL'] %>
   channel_prefix: roundtable_production
+  ssl_params:
+    # This is necessary for Heroku Redis, but would be a security risk for other Redis instances
+    verify_mode: <%= OpenSSL::SSL::VERIFY_NONE %>
