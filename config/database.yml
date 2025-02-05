@@ -24,17 +24,4 @@ test:
 # In production the ENV variables DATABASE_URL is set by Heroku
 production:
   primary:
-    adapter: postgresql
-    database: roundtable_production_primary
-  cache:
-    adapter: postgresql
-    database: roundtable_production_cache
-    migrations_paths: db/cache_migrate
-  queue:
-    adapter: postgresql
-    database: roundtable_production_queue
-    migrations_paths: db/queue_migrate
-  cable:
-    adapter: postgresql
-    database: roundtable_production_cable
-    migrations_paths: db/cable_migrate
+    url: <%= ENV['DATABASE_URL'] %>
