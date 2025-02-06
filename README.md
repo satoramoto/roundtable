@@ -158,7 +158,7 @@ You may find the following bits interesting:
 ## Thanks!
 If you found this project helpful, please consider giving it a star on GitHub.
 
-If you want to say thanks, you can buy me a coffee at [ko-fi.com/satoramoto](https://ko-fi.com/satoramoto).
+If you want to say thanks, you can buy me a coffee at [ko-fi.com/ryangavin](https://ko-fi.com/ryangavin).
 
 ## License
 This project is licensed under the MIT License. See LICENSE.txt for details.
