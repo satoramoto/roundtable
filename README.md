@@ -7,40 +7,101 @@ developers looking to build their own AI chatbot as quickly as possible.
 
 This project assumes basic programming knowledge, but aims to be accessible to anyone who is willing to learn.
 
+## Live Demo
+[Check out the live demo](https://roundtableai-580da9ec0237.herokuapp.com/)
+
 https://github.com/user-attachments/assets/890f8861-30d9-47d4-a033-dce5061ec00f
 
 ## Features & Concepts
 - Fully functional chatbot with a custom system prompt
 - Real-time UI updates with Turbo Streams
-- AI backend using `ollama` to allow any AI backend to be plugged in
-- Dockerized database for quick setup
-- Basic CI/CD with Github Actions
+- Works with any AI provider which uses the OpenAI completion API
+  - [Ollama](https://ollama.com)
+  - [llama.cpp](https://github.com/ggerganov/llama.cpp)
+  - [OpenAI](https://openai.com/api/) with your own API key
+- Ready to be deployed to Heroku
 
 ## Getting Started
 ### Pre-requisites
-- Docker (for a quick contained postgres database)
-- asdf (to install ruby)
-- ollama (to run the AI models)
-- overmind (to run all the services)
+- Docker for a quick contained postgres and redis instances
+- rbenv to install ruby
+- local AI provider (ollama, llama.cpp, etc) or OpenAI API key
+- overmind to orchestrate everything in the development environment
 
-On mac you can install most of these with [homebrew](https://brew.sh/). 
+On Mac you can install most of these with [homebrew](https://brew.sh/). 
 
-Be careful if you already have docker desktop installed not to install it again.
-```shell
-brew install docker asdf overmind
-```
-
-See The [Ollama website](https://ollama.com/download) for instructions to install olama.
+[Ollama](https://ollama.com/download) is a great choice for an AI backend if you're just getting started.
 
 ### Getting the code and running the project
+First let's get the code and install the dependencies.
 ```shell
 cd ~/Source # or wherever you keep your projects
 git clone https://github.com/satoramoto/roundtable.git
 cd roundtable
-asdf install && bundle install
-overmind start
+rbenv install && bundle install
 ```
+
+On Mac you may run into an issue with the `pg` gem, which must be built natively.
+You can install the `libpq` library with homebrew and then configure the bundler to use it during build.
+```shell
+brew install libpq
+bundle config build.pg --with-pg-config=/usr/local/opt/libpq/bin/pg_config
+```
+
+Next we create a `.env.development` file with the following contents. For simplicity, we'll use the OpenAI API.
+```shell
+OPEN_AI_BACKEND=https://api.openai.com
+OPEN_AI_API_KEY=your-api-key-here
+OPEN_AI_MODEL_NAME=gpt-4o-mini
+```
+
+Next lets bootstrap postgres with the database and the schema.
+```shell
+docker-compose up -d postgres
+rails db:setup && rails db:migrate
+docker-compose down
+```
+
+Finally, we can start the project with overmind.
+```shell
+overmind start -f Procfile.development
+```
+
 The application will be available at `http://localhost:5000`.
+
+### Deploying to Heroku
+These instructions are untested, but should give you the general idea of how to deploy this project to Heroku.
+You can also use the Heroku UI to set up the project. Here we'll use the Heroku CLI.
+
+Before we do anything, install the Heroku CLI and login.
+```shell
+brew tap heroku/brew && brew install heroku
+heroku login
+```
+
+Now we can create a new Heroku app and add the Redis and Postgres addons.
+```shell
+heroku create your-app-name
+heroku addons:create heroku-redis:hobby-dev
+heroku addons:create heroku-postgresql:hobby-dev
+```
+
+Next, set the environment variables on Heroku.
+```shell
+heroku config:set OPEN_AI_BACKEND=https://api.openai.com
+heroku config:set OPEN_AI_API_KEY=your-api-key-here
+heroku config:set OPEN_AI_MODEL_NAME=gpt-4o-mini
+```
+
+In order to deploy the code, we need to set up the heroku remote.
+```shell
+heroku git:remote
+```
+
+Finally, push the code to Heroku to trigger a deployment.
+```shell
+git push heroku main
+```
 
 ## FAQ & More
 ### Why did you do "stupid thing" or "Why didn't you do "smart thing"?
@@ -84,16 +145,20 @@ This project is meant to get you started quickly with all the basics.
 
 You should be able to copy the patterns here to do things like:
 - Add a user system using the `ActiveRecord` models
-- Ditch postgres for a cookie based session system
 - Change the system prompt to make that perfect assistant
+- Iterate quickly on your own user interface
 
 Or you can lift some of the infrastructure and build your own chatbot from scratch.
 
 You may find the following bits interesting:
-- Dockerization of the project
 - The System Prompt
 - The GitHub actions for CI/CD
 - Turbo and Hotwire as an alternative to React
+
+## Thanks!
+If you found this project helpful, please consider giving it a star on GitHub.
+
+If you want to say thanks, you can buy me a coffee at [ko-fi.com/satoramoto](https://ko-fi.com/satoramoto).
 
 ## License
 This project is licensed under the MIT License. See LICENSE.txt for details.
