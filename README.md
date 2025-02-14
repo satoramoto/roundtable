@@ -160,5 +160,9 @@ If you found this project helpful, please consider giving it a star on GitHub.
 
 If you want to say thanks, you can buy me a coffee at [ko-fi.com/ryangavin](https://ko-fi.com/ryangavin).
 
+BTC: bc1qxsvryfcse92qzgdug2ujh6wqxpq6u2pp5sd9r0
+
+XMR: 46oxUJ9iLX92SG1USCqNN2fezvcE26xBoef7dSCX9BhkT9ohnEk8uxhjc2r6961fBnUCJGBmryJMBAe5ronUxB3CADFT9eR
+
 ## License
 This project is licensed under the MIT License. See LICENSE.txt for details.
