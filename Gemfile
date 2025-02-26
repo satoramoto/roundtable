@@ -50,7 +50,7 @@ gem "tailwindcss-rails", "~> 3.3"
 gem "faraday", "~> 2.12"
 
 # Markdown rendering with redcarpet
-gem "redcarpet", "~> 3.5"
+gem "redcarpet", "~> 3.6"
 
 group :development, :test do
   gem "dotenv"
